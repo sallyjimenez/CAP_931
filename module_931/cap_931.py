@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from google import genai
 
 
-# The .env file keeps the Gemini API key separate from the Python code.
+# Keeps the Gemini API key separate from the Python code.
 load_dotenv()
 
 api_key = os.getenv("GEMINI_API_KEY")
@@ -20,7 +20,7 @@ client = genai.Client(api_key=api_key)
 st.title("🤖 Sales Assistant")
 
 
-# These fields collect the information required by the assignment.
+# These fields collect the information required.
 product_name = st.text_input("Product name", "Customer Analytics Platform")
 
 company_url = st.text_input("Company URL",  "https://sephora.com")
@@ -90,7 +90,7 @@ If information cannot be confirmed, say that it is not confirmed.
 Do not create fake links.
 """
 
-        # Model choice: Gemini was used because it can create text summaries.
+        # Model choice: Gemini was used due to original model not connecting, Gemini helped  create text summaries.
         response = client.models.generate_content(
             model="gemini-3.5-flash-lite",
             contents=prompt
