@@ -22,7 +22,7 @@ The application checks that the required fields are completed before generating 
 
 I connected the application to the Gemini API using the Google GenAI Python package.
 
-The API key is stored in a `.env` file instead of being written directly in the Python code. This helps protect the API key.
+The API key is stored private file instead of being written directly in the Python code. This helps protect the API key.
 
 The Gemini prompt asks for:
 
