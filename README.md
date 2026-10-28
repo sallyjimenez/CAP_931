@@ -62,4 +62,4 @@ uv sync
 
 ## Challenge and solution:
 
-The OpenAI key did not work with Gemini. The solution was to use the Google Gemini package.
+The OpenAI key caused issues when conducting run. The solution was to use the Google Gemini package.
