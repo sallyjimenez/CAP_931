@@ -54,18 +54,16 @@ Install the project packages:
 uv sync
 ```
 
-# Time management:
+## Time management:
 
-# Week 1 was used for the input form.
+Week 1 was used for the input form.
 
-# Week 2 was used to connect Gemini.
+Week 2 was used to connect Gemini.
 
-# Week 3 was used for the report and documentation.
+Week 3 was used for the report and documentation.
 
-# Challenge and solution:
+## Challenge and solution:
 
-# The OpenAI key did not work with Gemini.
+The OpenAI key did not work with Gemini.
 
-# The solution was to use the Google Gemini package
-
-# and store the Gemini key in the .env file.
+The solution was to use the Google Gemini package and store the Gemini key in the .env file.
