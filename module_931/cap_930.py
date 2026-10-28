@@ -106,14 +106,3 @@ Do not create fake links.
 
         if uploaded_file is not None:
             st.write("Product overview uploaded:", uploaded_file.name)
-
-
-# Time management:
-# Week 1 was used for the input form.
-# Week 2 was used to connect Gemini.
-# Week 3 was used for the report and documentation.
-
-# Challenge and solution:
-# The OpenAI key did not work with Gemini.
-# The solution was to use the Google Gemini package
-# and store the Gemini key in the .env file.
