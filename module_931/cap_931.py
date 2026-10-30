@@ -20,6 +20,7 @@ client = genai.Client(api_key=api_key)
 
 st.title("🤖 Sales Assistant")
 
+
 # These fields collect the information required by the assignment.
 product_name = st.text_input(
     "Product name",
@@ -128,4 +129,3 @@ Do not create fake links.
 
         if uploaded_file is not None:
             st.write("Product overview uploaded:", uploaded_file.name)
-
