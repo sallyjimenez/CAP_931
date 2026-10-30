@@ -127,5 +127,6 @@ Do not create fake links.
         st.write(company_url)
         st.write(competitors)
 
+# files
         if uploaded_file is not None:
             st.write("Product overview uploaded:", uploaded_file.name)
