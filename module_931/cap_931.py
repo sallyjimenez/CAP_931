@@ -126,6 +126,6 @@ Do not create fake links.
         st.header("Source Links")
         st.write(company_url)
         st.write(competitors)
-
+#
         if uploaded_file is not None:
             st.write("Product overview uploaded:", uploaded_file.name)
