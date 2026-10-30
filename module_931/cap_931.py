@@ -3,6 +3,7 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 from google import genai
+from google.genai.types import GenerateContentConfig
 
 
 # Keeps the Gemini API key separate from the Python code.
@@ -23,10 +24,21 @@ st.title("🤖 Sales Assistant")
 # These fields collect the information required.
 product_name = st.text_input("Product name", "Customer Analytics Platform")
 
-company_url = st.text_input("Company URL",  "https://sephora.com")
+# These fields collect the information required by the assignment.
+product_name = st.text_input(
+    "Product name",
+    "Customer Analytics Platform"
+)
+
+company_url = st.text_input(
+    "Company URL",
+    "https://sephora.com"
+)
 
 product_category = st.text_input(
-    "Product category", "Data and customer analytics")
+    "Product category",
+    "Data and customer analytics"
+)
 
 competitors = st.text_area(
     "Competitors",
@@ -34,7 +46,9 @@ competitors = st.text_area(
 )
 
 value_proposition = st.text_area(
-    "Value proposition", "Our platform helps retail teams understand customer behavior.")
+    "Value proposition",
+    "Our platform helps retail teams understand customer behavior."
+)
 
 target_customer = st.text_input(
     "Target customer",
@@ -67,12 +81,18 @@ if st.button("Generate Sales Insights"):
     else:
         # This prompt organizes the information into the report sections.
         prompt = f"""
+Read the company webpage and competitor webpages listed below.
+
+Company webpage:
+{company_url}
+
+Competitor webpages:
+{competitors}
+
 Create a simple one-page sales report.
 
-Prospective company: {company_url}
 Product: {product_name}
 Product category: {product_category}
-Competitors: {competitors}
 Value proposition: {value_proposition}
 Target customer: {target_customer}
 
@@ -85,7 +105,7 @@ Use these sections:
 5. Source Links
 
 Use clear and simple language.
-Only include information related to this sales project.
+Only use information found on the webpages when possible.
 If information cannot be confirmed, say that it is not confirmed.
 Do not create fake links.
 """
@@ -93,16 +113,23 @@ Do not create fake links.
         # Model choice: Gemini was used due to original model not connecting, Gemini helped  create text summaries.
         response = client.models.generate_content(
             model="gemini-3.5-flash-lite",
-            contents=prompt
+            contents=prompt,
+            config=GenerateContentConfig(
+                tools=[
+                    {"url_context": {}}
+                ]
+            )
         )
 
         # This displays the one-page report created by Gemini.
         st.header("One-Page Sales Report")
         st.write(response.text)
 
-        # This displays the source link entered by the user.
-        st.header("Source Link Provided")
+        # These display the webpages used for the report.
+        st.header("Source Links")
         st.write(company_url)
+        st.write(competitors)
 
         if uploaded_file is not None:
             st.write("Product overview uploaded:", uploaded_file.name)
+
