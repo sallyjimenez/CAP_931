@@ -21,7 +21,7 @@ client = genai.Client(api_key=api_key)
 st.title("🤖 Sales Assistant")
 
 
-# These fields collect the information required by the assignment.
+# These fields collect the information.
 product_name = st.text_input(
     "Product name",
     "Customer Analytics Platform"
